@@ -10,10 +10,12 @@ interface BarProps {
 }
 
 const Bar = styled(Animated.View)`
-  height: ${constants.indicatorHeight};
+  height: 4;
   width: ${(props: BarProps) => props.tabWidth};
   position: absolute;
   bottom: 0;
+  zIndex: 99;
+  border-radius: 5;
   background-color: ${(props: BarProps) => props.color};
 `;
 
@@ -24,11 +26,11 @@ interface IndicatorProps {
 }
 
 const Indicator = (props: IndicatorProps) => (
-  <Bar
-    color={props.color}
-    style={{ transform: [{ translateX: props.value }] }}
-    tabWidth={props.tabWidth}
-  />
+    <Bar
+        color={props.color}
+        style={{ transform: [{ translateX: props.value }] }}
+        tabWidth={props.tabWidth}
+    />
 );
 
 export default Indicator;
